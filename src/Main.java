@@ -1,7 +1,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Scanner;
-import java.util.*;
+//import java.util.*;
 
 //Создайте консольное приложение "Строковый калькулятор".
 // Приложение должно читать из консоли введенные пользователем строки, числа, арифметические операции проводимые между ними
@@ -91,7 +91,7 @@ public class Main
 
             String number1 = " ";
             String number2 = " ";
-            String result ="";
+          //  String result ="";
             String[] numbers = input.split(tests);
 
             try {

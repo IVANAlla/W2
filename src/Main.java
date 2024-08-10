@@ -62,7 +62,7 @@ import java.util.Scanner;
 public class Main
 {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello World");
+      //  System.out.println("Hello World");
         while(true){ Scanner ip = new Scanner(System.in);
             System.out.println("Intput:");
             String input=ip.nextLine() ;
@@ -106,6 +106,8 @@ public class Main
             }
             if (number1.length()>12) throw new Exception();
             if (number2.length()>12) throw new Exception();
+            if (znac == '*' || znac == '/') {
+            if(Integer.parseInt(number2)>=11) throw new Exception();}
             if (znac == '*' || znac == '/') {
                 if (number2.contains("\"")) throw new Exception();
             }
@@ -196,7 +198,7 @@ class Minus extends Znak{
         super(number1,number2);
     }
     public String displayInfo(){
-        int index = number1.replace("\"","").indexOf(number2.replace("\"",""));
+   //     int index = number1.replace("\"","").indexOf(number2.replace("\"",""));
         if (number1.replace("\"","").compareTo(number2.replace("\"",""))==0){
             return "";}
 
@@ -206,6 +208,9 @@ class Minus extends Znak{
         else{
             StringBuilder stringBuilder = new StringBuilder();
             String result="";
-            result += stringBuilder.append(number1.substring(0, number1.replace("\"","").indexOf(number2.replace("\"",""))+1)).append(number1.substring(number1.replace("\"","").indexOf(number2.replace("\"",""))+ (number2.length()-1))).toString();
+            result += stringBuilder.append(number1.substring(0, number1.replace("\"","")
+                    .indexOf(number2.replace("\"",""))+1)).append(number1
+                    .substring(number1.replace("\"","")
+                                            .indexOf(number2.replace("\"",""))+ (number2.length()-1))).toString();
             return result.replace("\"", "");}
     } }

@@ -175,7 +175,7 @@ class Proiz extends Znak{
     public String displayInfo(){
 // int number=Integer.parseInt(number2);
 //result= (number1.repeat(Integer.parseInt(number2)).replace("\"",""));
-        if( number1.replace("\"","").repeat(Integer.parseInt(number2)).replace("\"","").length()<40)
+        if( number1.replace("\"","").repeat(Integer.parseInt(number2)).replace("\"","").length()<=40)
             return number1.repeat(Integer.parseInt(number2)).replace("\"","");//.replace("\"", "").replace("\"", "")
         else
             return (number1.repeat(Integer.parseInt(number2)).replace("\"","").substring(0,40)+"...");
@@ -188,7 +188,7 @@ class Del extends Znak{
     public String displayInfo(){
 // int newLen = number1.length()/Integer.parseInt(number2);
 //result = number1.substring(0,number1.length()/Integer.parseInt(number2));
-        return number1.replace("\"","").substring(0,number1.length()/Integer.parseInt(number2));
+        return number1.replace("\"","").substring(0,number1.replace("\"","").length()/Integer.parseInt(number2));
 
 
     } }
@@ -198,19 +198,9 @@ class Minus extends Znak{
         super(number1,number2);
     }
     public String displayInfo(){
-   //     int index = number1.replace("\"","").indexOf(number2.replace("\"",""));
-        if (number1.replace("\"","").compareTo(number2.replace("\"",""))==0){
-            return "";}
+        int index=0;   index = number1.replace("\"","").indexOf(number2.replace("\"",""));
 
-        else if (number1.replace("\"","").indexOf(number2.replace("\"",""))==-1)
-        {return number1.replace("\"","");}
 
-        else{
-            StringBuilder stringBuilder = new StringBuilder();
-            String result="";
-            result += stringBuilder.append(number1.substring(0, number1.replace("\"","")
-                    .indexOf(number2.replace("\"",""))+1)).append(number1
-                    .substring(number1.replace("\"","")
-                                            .indexOf(number2.replace("\"",""))+ (number2.length()-1))).toString();
-            return result.replace("\"", "");}
+        String    result=number1.replace("\"", "").substring(0, index) +number1.replace("\"", "").substring(( index+number2.replace("\"", "").length()));
+        return result;
     } }

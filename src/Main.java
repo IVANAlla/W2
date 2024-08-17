@@ -192,15 +192,22 @@ class Del extends Znak{
 
 
     } }
-class Minus extends Znak{
-
+class Minus {
+    String number1;
+    String number2;
     Minus( String number1,String number2){
-        super(number1,number2);
+        this.number1=number1;
+        this.number2=number2;
     }
     public String displayInfo(){
-        int index=0;   index = number1.replace("\"","").indexOf(number2.replace("\"",""));
+        StringBuilder sb = new StringBuilder(number1);//.replace("\"","").replace("\"","")
+        StringBuilder sb1 = new StringBuilder(number2);
+        for (int i = 0; i < sb.length()-1; i++) {
+            for (int j = 0; j < sb1.length()-1; j++) {
+                if (sb.charAt(i) != sb1.charAt(j)) {//&&sb.charAt(i) != sb1.charAt(j).setCharAt(i++,sb.charAt(i++))
+                    sb.setCharAt(i,sb.charAt(i));
+                }else if(sb.charAt(i) == sb1.charAt(j)){sb.deleteCharAt(i);}//
+                else {sb=new StringBuilder("");}
 
-
-        String    result=number1.replace("\"", "").substring(0, index) +number1.replace("\"", "").substring(( index+number2.replace("\"", "").length()));
-        return result;
-    } }
+            }String result = sb.toString();}
+        return sb.toString(); } }
